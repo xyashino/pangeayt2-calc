@@ -1,10 +1,16 @@
+import logo from '../../../assets/icon.png';
+
 interface Props {
   title: string;
 }
+
 export default function Header({ title }: Props) {
   return (
-    <header className="grid bg-red-900 p-4 place-content-center">
-      <h1 className="font-bold uppercase text-red-100 text-3xl">{title}</h1>
+    <header className="w-screen bg-red-500  p-2 flex items-center">
+      <img src={`${logo}`} alt="app logo" draggable="false" className="h-20" />
+      <h1 className="font-bold uppercase text-3xl text-white block text-">
+        {title}
+      </h1>
     </header>
   );
 }

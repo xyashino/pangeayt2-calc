@@ -4,7 +4,7 @@ module.exports = {
   variants: {
     extend: {
       backgroundImage: {
-        main: "url('~/assets/img.png')",
+        'hero-pattern': "url('~/assets/img.png')",
       },
     },
   },
