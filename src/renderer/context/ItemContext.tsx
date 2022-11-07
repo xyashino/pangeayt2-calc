@@ -1,4 +1,10 @@
-import { createContext, Dispatch, ReactNode, useState } from 'react';
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from 'react';
 import { ItemData } from '../../types/item-data';
 
 interface Props {
@@ -6,12 +12,12 @@ interface Props {
 }
 interface Item {
   items: [] | ItemData[];
-  setItems: Dispatch<ItemData[] | []>;
+  setItems: Dispatch<SetStateAction<[] | ItemData[]>>;
 }
 
 const initialValue: Item = {
   items: [],
-  setItems: (event: ItemData[]) => event,
+  setItems: () => {},
 };
 
 export const ItemContext = createContext<Item>(initialValue);

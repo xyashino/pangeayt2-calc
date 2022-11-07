@@ -8,7 +8,7 @@ const bgUrl = "bg-[url('~/assets/img.png')]";
 export default function App() {
   return (
     <div
-      className={`w-screen h-screen bg-cover bg-center bg-fixed flex flex-col items-center ${bgUrl}`}
+      className={`w-screen min-h-screen  bg-cover bg-center bg-fixed flex flex-col items-center ${bgUrl}`}
     >
       <Header title="PANGEA2YT-CALC" />
       <Main />

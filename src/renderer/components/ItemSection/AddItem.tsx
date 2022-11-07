@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  SetStateAction,
-  SyntheticEvent,
-  useContext,
-  useState,
-} from 'react';
+import { SyntheticEvent, useContext, useState } from 'react';
 import Btn from '../common/Btn';
 import { ItemData } from '../../../types/item-data';
 import { ItemContext } from '../../context/ItemContext';
@@ -12,13 +6,12 @@ import { ItemContext } from '../../context/ItemContext';
 export default function AddItem() {
   const { items, setItems } = useContext(ItemContext);
   const [itemExist, setItemExist] = useState<boolean>(false);
-  const [data, setData]: [ItemData, Dispatch<SetStateAction<ItemData>>] =
-    useState({
-      name: '',
-      quantity: 1,
-    });
+  const [data, setData] = useState<ItemData>({
+    name: '',
+    quantity: 1,
+  });
 
-  const updateStateData = (key: string, value: string) => {
+  const updateStateData = (key: string, value: string | number) => {
     setItemExist(false);
     setData((prevState) => ({
       ...prevState,
@@ -35,15 +28,12 @@ export default function AddItem() {
       setItemExist(true);
       return;
     }
-    setItems((prev) => {
-      prev.push(data);
-      return prev;
-    });
+
+    setItems((prev) => [...prev, data]);
     setData({
       name: '',
       quantity: 1,
     });
-    console.log(items);
   };
 
   return (
@@ -67,7 +57,7 @@ export default function AddItem() {
           placeholder="Szt"
           value={data.quantity}
           name="quantity"
-          onChange={(e) => updateStateData(e.target.name, e.target.value)}
+          onChange={(e) => updateStateData(e.target.name, +e.target.value)}
         />
         <Btn value="dodaj" styles="w-1/4" />
       </div>

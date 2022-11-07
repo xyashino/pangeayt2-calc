@@ -9,15 +9,17 @@ export default function ItemsSection() {
   return (
     <div className="p-5 w-1/2 flex flex-col items-center">
       <AddItem />
-      <ul className="w-4/5 p-5 bg-red-500 bg-opacity-20 mt-10  ">
-        {items.map((item) => (
-          <Item
-            name={item.name}
-            quantity={item.quantity}
-            key={`${item.name}${item.quantity}`}
-          />
-        ))}
-      </ul>
+      {items.length !== 0 ? (
+        <ul className="w-4/5 p-5 bg-red-500 bg-opacity-20 mt-10  ">
+          {items.map((item) => (
+            <Item
+              name={item.name}
+              quantity={item.quantity}
+              key={`${item.name}${item.quantity}`}
+            />
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }

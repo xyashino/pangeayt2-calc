@@ -5,7 +5,7 @@ import { ItemProvider } from '../context/ItemContext';
 
 export default function Main() {
   return (
-    <div className="w-4/5 h-screen bg-black bg-opacity-70  flex  flex-wrap">
+    <div className="w-4/5 h-auto bg-black bg-opacity-80  flex  flex-wrap">
       <TitleSection />
       <ItemProvider>
         <ItemsSection />
