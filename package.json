@@ -21,17 +21,9 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "name": "xyashino",
+    "url": "https://github.com/xyashino/pangeayt2-calc"
   },
-  "contributors": [
-    {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
-    }
-  ],
   "main": "./src/main/main.ts",
   "scripts": {
     "format": "prettier --write \"src/**/**/*.ts\" \"src/**/*.ts\" \"src/**/**/*.tsx\" \"src/**/*.tsx\"",
@@ -144,7 +136,7 @@
     "css-minimizer-webpack-plugin": "^4.0.0",
     "detect-port": "^1.3.0",
     "electron": "^20.0.2",
-    "electron-builder": "^23.3.3",
+    "electron-builder": "^23.6.0",
     "electron-devtools-installer": "^3.2.0",
     "electron-notarize": "^1.2.1",
     "electron-rebuild": "^3.2.9",
@@ -193,7 +185,7 @@
     "webpack-merge": "^5.8.0"
   },
   "build": {
-    "productName": "ElectronReact",
+    "productName": "PANGEA_CALC",
     "appId": "org.erb.ElectronReact",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",

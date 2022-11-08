@@ -57,7 +57,7 @@ export default function AddItem() {
           placeholder="Szt"
           value={data.quantity}
           name="quantity"
-          onChange={(e) => updateStateData(e.target.name, +e.target.value)}
+          onChange={(e) => updateStateData(e.target.name, +e.target.value < 1 ? 1 : +e.target.value )}
         />
         <Btn value="dodaj" styles="w-1/4" />
       </div>

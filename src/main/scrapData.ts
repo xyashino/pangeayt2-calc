@@ -14,21 +14,25 @@ export const getPrice = async (
   await page.goto('https://pangeayt2.eu/#exchange');
   await page.mouse.click(0, 0, { button: 'left' });
   const result = [];
-  for await (const obj of arrayOfObject) {
+  for await (const { name, quantity } of arrayOfObject) {
     const firstUrl = page.url();
     await clear(page, '#autocomplete-ajax');
     await page.focus('#autocomplete-ajax');
-    await page.type('#autocomplete-ajax', `${obj.name}`);
+    await page.type('#autocomplete-ajax', `${name}`);
     await page.keyboard.press('Enter');
     const secondUrl = page.url();
     if (firstUrl === secondUrl) continue;
     const element = await page.waitForSelector(
       '#exchange-table > tbody > tr:nth-child(1) > td:nth-child(2)'
     );
+    const img = await page.waitForSelector('#exchange-icon > img');
+
     if (!element) continue;
     const value = await element.evaluate((el) => el.textContent);
+    const src = await img?.evaluate((el) => el.getAttribute('src'));
+
     if (!value) {
-      result.push({ itemName: obj.name, price: 0, quantity: obj.quantity });
+      result.push({ name, price: 0, quantity, src });
       continue;
     }
     const price = +value
@@ -37,9 +41,10 @@ export const getPrice = async (
       .replace('B', '')
       .replace(' ', '');
     result.push({
-      name: obj.name,
+      name,
       price,
-      quantity: obj.quantity,
+      quantity,
+      src,
     });
   }
   await browser.close();

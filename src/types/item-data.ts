@@ -7,4 +7,5 @@ export interface ItemDataResponse {
   name: string;
   price: number;
   quantity: number;
+  src?: string | null | undefined;
 }

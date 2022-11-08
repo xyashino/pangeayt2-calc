@@ -1,18 +1,18 @@
 {
-  "name": "electron-react-boilerplate",
-  "version": "4.6.0",
-  "description": "A foundation for scalable desktop apps",
+  "name": "PANGEA_CALC",
+  "version": "0.9.1",
+  "description": "This app scrapes actual item prices from https://pangeayt2.eu/",
   "license": "MIT",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://github.com/electron-react-boilerplate"
+    "url": "https://github.com/xyashino",
+    "name": "xyashino"
   },
   "main": "./dist/main/main.js",
   "scripts": {
     "rebuild": "node -r ts-node/register ../../.erb/scripts/electron-rebuild.js",
     "postinstall": "npm run rebuild && npm run link-modules",
-    "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts"
-  },
-  "dependencies": {}
+    "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  }
 }

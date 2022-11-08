@@ -1,5 +1,5 @@
-import { ItemDataResponse } from '../../types/item-data';
-import { ResultRow } from './ResultRow';
+import { ItemDataResponse } from '../../../types/item-data';
+import { ResultTableRow } from './ResultTableRow';
 
 interface Props {
   items: ItemDataResponse[];
@@ -17,11 +17,13 @@ export const ResultTable = ({ items }: Props) => {
         </tr>
       </thead>
       <tbody className="text-center font-bold">
-        {items.length === 0 ? (
-          <h2>Brak Wyników</h2>
-        ) : (
-          items.map((item) => <ResultRow item={item} key={item.name}  tailwindStyles="p-5 bg-opacity-70 bg-red-600 border-solid border-2 border-red-700"/>)
-        )}
+        {items.map((item) => (
+          <ResultTableRow
+            item={item}
+            key={item.name}
+            tailwindStyles="p-5 bg-opacity-70 bg-red-600 border-solid border-2 border-red-700"
+          />
+        ))}
       </tbody>
     </table>
   );
