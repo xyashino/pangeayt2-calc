@@ -14,7 +14,7 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
-import { getPrice } from './scrapData';
+import { getMoreStatisticsAboutItem, getPrice } from './scrapData';
 
 class AppUpdater {
   constructor() {
@@ -138,3 +138,6 @@ app
   .catch(console.log);
 
 ipcMain.handle('request-get-prices', async (event, arg) => getPrice(arg));
+ipcMain.handle('request-get-statistics', async (event, arg) =>
+  getMoreStatisticsAboutItem(arg)
+);

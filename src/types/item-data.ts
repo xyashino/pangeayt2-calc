@@ -8,4 +8,5 @@ export interface ItemDataResponse {
   price: number;
   quantity: number;
   src?: string | null | undefined;
+  url: string;
 }

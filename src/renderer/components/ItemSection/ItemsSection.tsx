@@ -1,21 +1,21 @@
-import { useContext } from 'react';
-import AddItem from './AddItem';
-import Item from './Item';
+import { SyntheticEvent, useContext } from 'react';
+import { AddItem } from './AddItem';
+import { Item } from './Item';
 import { ItemContext } from '../../context/ItemContext';
-import Btn from '../common/Btn';
+import { Btn } from '../common/Btn';
 
-export default function ItemsSection() {
+export const ItemsSection = () => {
   const { items, setItems } = useContext(ItemContext);
-  const clearUl = (e) => {
+  const clearUl = (e: SyntheticEvent) => {
     e.preventDefault();
     setItems([]);
   };
   return (
-    <div className="p-5 w-1/2 flex flex-col items-center justify-center">
+    <div className="p-5 w-full flex flex-col items-center justify-center lg:w-2/5">
       <AddItem />
       {items.length !== 0 ? (
         <>
-          <ul className="w-4/5 p-5 bg-red-500 bg-opacity-20 mt-10  ">
+          <ul className="w-full p-5 bg-red-600 bg-opacity-20 mt-10  ">
             {items.map((item) => (
               <Item
                 name={item.name}
@@ -24,9 +24,9 @@ export default function ItemsSection() {
               />
             ))}
           </ul>
-          <Btn value="Wyczyść" clickMethod={clearUl} styles="m-10"/>
+          <Btn value="Wyczyść" clickMethod={clearUl} styles="m-10" />
         </>
       ) : null}
     </div>
   );
-}
+};

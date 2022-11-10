@@ -1,9 +1,9 @@
 import { SyntheticEvent, useContext, useState } from 'react';
-import Btn from '../common/Btn';
+import { Btn } from '../common/Btn';
 import { ItemData } from '../../../types/item-data';
 import { ItemContext } from '../../context/ItemContext';
 
-export default function AddItem() {
+export const AddItem = () => {
   const { items, setItems } = useContext(ItemContext);
   const [itemExist, setItemExist] = useState<boolean>(false);
   const [data, setData] = useState<ItemData>({
@@ -57,15 +57,20 @@ export default function AddItem() {
           placeholder="Szt"
           value={data.quantity}
           name="quantity"
-          onChange={(e) => updateStateData(e.target.name, +e.target.value < 1 ? 1 : +e.target.value )}
+          onChange={(e) =>
+            updateStateData(
+              e.target.name,
+              +e.target.value < 1 ? 1 : +e.target.value
+            )
+          }
         />
-        <Btn value="dodaj" styles="w-1/4" />
+        <Btn value="dodaj" />
       </div>
       {itemExist ? (
-        <p className="uppercase italic font-bold text-red-500">
+        <p className="uppercase italic font-bold text-red-600">
           Podany Przedmoit już istnieje !!!
         </p>
       ) : null}
     </form>
   );
-}
+};

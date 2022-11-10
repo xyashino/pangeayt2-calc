@@ -20,6 +20,8 @@ contextBridge.exposeInMainWorld('electron', {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
     },
   },
-  blenderVersion: async (channel: Channels, args: unknown[]) =>
+  getPrices: async (channel: Channels, args: unknown[]) =>
     ipcRenderer.invoke('request-get-prices', args),
+  getStatistics: async (channel: Channels, args: unknown[]) =>
+    ipcRenderer.invoke('request-get-statistics', args),
 });
